@@ -15,6 +15,45 @@ form.addEventListener('submit', e => {
         }
     });
     // display result
-    result.querySelector('span').textContent = `${score}%`;
+    scrollTo(0,0);
+    
     result.classList.remove('d-none');
+
+    let output = 0;
+    const timer = setInterval(() => {
+        result.querySelector('span').textContent = `${output}%`;
+        if (output === score){
+            clearInterval(timer);
+        }   else {
+            output++
+        }
+    }, 10);
 });
+
+// window object (global object)
+
+// console.log('hello');
+// window.console.log('hello');
+
+// console.log(document.querySelector("form"));
+// console.log(window.document.querySelector("form"));
+
+// //alert("hello");
+// window.alert("hello");
+
+// we do not need to write out window because it is a global object
+
+// window.setTimeout(() =>{
+//  alert("hello world");
+// }, 3000);
+
+//Intervals and Animating the score
+
+// let i = 0;
+// const timer = setInterval(() => {
+//     console.log("hello world");
+//     i++;
+//     if(i === 5){
+//       clearInterval(timer);  
+//     }
+// }, 1000);
